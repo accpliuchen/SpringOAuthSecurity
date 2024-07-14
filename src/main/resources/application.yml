@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8080/oauth/token_key
+
+# Optionally, if you are using an authorization server
+oauth2:
+  client:
+    clientId: my-client-id
+    clientSecret: my-client-secret
+    accessTokenUri: http://localhost:8080/oauth/token
+    userAuthorizationUri: http://localhost:8080/oauth/authorize
+    scope: read,write
+    grantType: password,authorization_code,refresh_token
